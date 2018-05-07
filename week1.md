@@ -1,4 +1,4 @@
-#Week-1 Lab Setup and basics
+# Week-1 Lab Setup and basics
  
 1. Bascis of SSH and SSH tunnelling,  SCP ,FTP (And how to connect to  digital ocean or aws servers)
 
