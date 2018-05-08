@@ -1,4 +1,6 @@
 # Week-1 : Lab Setup and basics
+
+**( Timeline : 8<sup>th</sup> May'18 - 12<sup>th</sup> May'18, this week's shorter )**
  
 1. Bascis of SSH and SSH tunnelling,  SCP , SFTP ( how to connect to digital ocean/aws or any other VPSes )
 
