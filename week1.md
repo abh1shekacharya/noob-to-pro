@@ -13,8 +13,8 @@
 Needless to say write a script to do the same
 
 4. Set up **2 VMs** ,
-	1. Vagrant [EpicTreasure] (https://github.com/ctfhacker/EpicTreasure) and change according to your needs ( like it has 8gb RAM and 4 cores assigned for the virtual box , change it accordingly to suit your system ).
-	2. The 2nd being [Flare-VM]([https://github.com/fireeye/flare-vm) windows virtual machine.
+	1. Vagrant [EpicTreasure](https://github.com/ctfhacker/EpicTreasure) and change according to your needs ( like it has 8gb RAM and 4 cores assigned for the virtual box , change it accordingly to suit your system ).
+	2. The 2nd being [Flare-VM](https://github.com/fireeye/flare-vm) windows virtual machine.
 
 These two would contain moslty all the tools you would ever need for either Windows reversing or Linux reversing/pwning or basic maleware analysis.
 
