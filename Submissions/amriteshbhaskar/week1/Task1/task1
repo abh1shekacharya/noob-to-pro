@@ -1,0 +1,4 @@
+ssh -L 20001:localhost:30001 admin@192.168.0.4 -p 2222
+
+#here I have port forwarded 20001 and then connected to port 30001 of remote machine(localhost).
+#screeenshot provided

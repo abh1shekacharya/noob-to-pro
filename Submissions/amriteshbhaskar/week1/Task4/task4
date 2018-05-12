@@ -1,0 +1,6 @@
+#setting proxies using export command line in terminal
+
+export http_proxy="http://iit2017143:Saf3st@172.31.1.4:8080"
+export https_proxy="http://iit2017143:Saf3st@172.31.1.4:8080"
+export ftp_proxy="http://iit2017143:Saf3st@172.31.1.4:8080"
+
