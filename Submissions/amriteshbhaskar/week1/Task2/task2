@@ -1,0 +1,7 @@
+# following command will copy the folder to week-1(which is inside the files of second user of my linux).
+
+scp -r folder amy@localhost:/home/amy/week-1
+
+#for vagrant
+
+scp -r -P 2222 -i /home/amritesh/EpicTreasure/.vagrant/machines/default/virtualbox/private_key folder vagrant@localhost:/home/amy/week-1
