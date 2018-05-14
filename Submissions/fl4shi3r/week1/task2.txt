@@ -1,0 +1,1 @@
+scp -r -P 2222 -i /root/epictreasure/.vagrant/machines/default/virtualbox/private_key folder_name vagrant@127.0.0.1:~/week-1
