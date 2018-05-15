@@ -1,0 +1,13 @@
+Proxy setting using export command. This command set the proxy environmnent variables.
+
+If proxy is not authenticated then use
+
+export http_proxy="http://PROXY_SERVER:PORT"
+export https_proxy="https://PROXY_SERVER:PORT"
+export ftp_proxy="http://PROXY_SERVER:PORT"
+
+But if is auntheticated with password then
+
+export http_proxy="http://USER:PASSWORD@PROXY_SERVER:PORT"
+export https_proxy="https://USER:PASSWORD@PROXY_SERVER:PORT"
+export ftp_proxy="http://USER:PASSWORD@PROXY_SERVER:PORT"
