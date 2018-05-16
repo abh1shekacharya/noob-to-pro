@@ -1,0 +1,4 @@
+
+ssh -L <local-port-to-listen>:<remote-host>:<remote-port> <gateway>
+eg
+ssh 8911:127.0.0.1:80 gyani@172.21.21.172
