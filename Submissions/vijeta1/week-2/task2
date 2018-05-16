@@ -1,0 +1,2 @@
+$ awk '{print}' access.log | grep POST
+
