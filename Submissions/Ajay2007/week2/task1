@@ -1,0 +1,7 @@
+### We can find the useragent and print the whole line if it is not a Chrome browser using sed as well as awk
+
+    1. Using sed
+      sed '/Chrome/d' access.log
+    2. Using awk 
+      awk  '!/Chrome/' access.log
+     
