@@ -1,7 +1,5 @@
-### We can find the useragent and print the whole line if it is not a Chrome browser using sed as well as awk
 
-    1. Using sed
-      sed '/Chrome/d' access.log
-    2. Using awk 
-      awk  '!/Chrome/' access.log
-     
+
+### Find the useragent and print the whole line if it is not a Chrome browser
+
+*awk {'print  $10 $11 $12 $13 $14 $15 $16 $17 $18 $19 $20 $21 $22  '} access.log | sed '/Chrome/d'*
