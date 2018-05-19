@@ -1,0 +1,1 @@
+$ awk '!/Chrome/' access.log

@@ -1,0 +1,1 @@
+awk -F\" 'NR>=20&&NR<=33 { print $1,$2,$6}' access.log | awk -F\[ '{print   $1,$2}' |awk -F\] '{print $1, $2}' | awk 'BEGIN{print"ip_address,date_accessed,endpoint_accessed,useragent"}  {printf"%s,%s,%s,%s %s %s %s %s %s\n", $1,$4,$7,$9,$10,$11,$12,$13,$14}' >>task4.csv

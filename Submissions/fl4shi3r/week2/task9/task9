@@ -1,0 +1,1 @@
+awk -F[\[" ":] 'BEGIN{count=0} {if($5="12/MAY/2018"){if($6>=8&&$7>0&&$8>0&&$6<9&&$7<=59&&$8<=59){count++}}} END{print count}' access.log

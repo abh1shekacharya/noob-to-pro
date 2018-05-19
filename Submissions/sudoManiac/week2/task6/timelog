@@ -1,0 +1,4 @@
+#!/bin/bash
+#finding log (12:00:00 - 14:52:50)which the attack took place
+
+awk -F ":|| " '{if($4=="[13/May/2018" && $5>=12 && $5<=14 && $6>=0 && $6<=52 && $7>=0 && $7<=50){print $0}}' access.log	

@@ -1,0 +1,1 @@
+scp -r /path/of/folder username@server.ip.addrs:/destination/folder

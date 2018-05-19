@@ -1,0 +1,9 @@
+#!/bin/bash
+#ip_addr,date_accessed,endpoint_accessed, useragent.Only print logs with status code as 404.1
+
+#getting ip addr
+awk '{if($9==404) print "ip_address->",$1}' access.log >> output.csv
+awk -F ":|| " '{if ($12==404||$14==404)print "date_accessed->",$4}' access.log >> output.csv
+ 
+awk -F "\"|| " '{if ($11==404)print "endpoint_accessed->",$6,$7,$8,$9}' access.log >> output.csv
+awk '{if($9==404)print "useragent->",$22}' access.log >> output.csv

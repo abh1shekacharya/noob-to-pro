@@ -1,0 +1,1 @@
+awk -F\" '$3 ~ /404/ { print $1,$2,"Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)"}' access.log | awk -F\[ '{print   $1,$2}' |awk -F\] '{print $1, $2}' | awk 'BEGIN{print"ip_address,date_accessed,endpoint_accessed,useragent"}  {printf"%s,%s,%s,%s %s %s %s %s %s\n", $1,$4,$7,$9,$10,$11,$12,$13,$14}'
