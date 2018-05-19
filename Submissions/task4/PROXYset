@@ -1,0 +1,18 @@
+#!/bin/bash
+#setting env proxy variables
+# Created By Maniac
+
+read -p 'proxy_server ->' proxy_server
+read -p 'PORT ->' port
+
+export   HTTP_PROXY="http://"${proxy_server}":"${port}"/"  
+export  FTP_PROXY="http://"${proxy_server}":"${port}"/"  
+export  https_proxy="http://"${proxy_server}":"${port}"/"  
+export  http_proxy="http://"${proxy_server}":"${port}"/"  
+export  ALL_PROXY="socks://"${proxy_server}":"${port}"/"  
+export  no_proxy="localhost,127.0.0.0/8,::1"  
+export  NO_PROXY="localhost,127.0.0.0/8,::1"  
+export  HTTPS_PROXY="http://"${proxy_server}":"${port}"/"  
+export  all_proxy="socks://"${proxy_server}":"${port}"/"  
+export  ftp_proxy="http://"${proxy_server}":"${port}"/"  
+printf "PROXY SET :: "${proxy_server}":"${port}"\n"
