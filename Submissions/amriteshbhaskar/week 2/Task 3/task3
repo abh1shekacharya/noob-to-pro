@@ -1,0 +1,1 @@
+sed -n -e '/404/p' access.log |awk 'BEGIN{i=0}{i++;}{printf"%d, %s, %s %s, %s, ", i,$1,$4,$5,$7}{for (j=12; j<24; j++) printf $j " ";}{printf"\n"}' >> output.csv

@@ -1,0 +1,1 @@
+sed -n '/POST/p' access.log
