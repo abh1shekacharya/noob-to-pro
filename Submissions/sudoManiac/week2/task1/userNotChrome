@@ -1,0 +1,3 @@
+#!/bin/bash
+
+awk '!/Chrome/{print "\n","useragent:",$19,"\n",$0}' access.log
