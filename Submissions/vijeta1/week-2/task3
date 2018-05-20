@@ -1,0 +1,1 @@
+$ sed -n -e '/404/p' access.log | awk '{printf"%s,%s,%s,%s,",$1,$4,$5,$7}{for(i=12;i<24;i++) printf $i}{printf"\n"}' >> 3.csv
