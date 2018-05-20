@@ -1,0 +1,1 @@
+cat access.log | awk 'BEGIN{nl=0}{nl++}END{printf"The total number of lines are %d.\n", nl}'

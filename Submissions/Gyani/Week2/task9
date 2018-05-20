@@ -1,0 +1,1 @@
+cat access.log | awk -F'[ :]' 'BEGIN{sum=0} $5==12{if($6>=8 && $6<20){if($9=="\"HEAD"){sum=sum+ $14} else{sum=sum+$13}}}END{printf"The total size of requested bytes on 12 May 2018 is %d bytes.\n", sum}'
