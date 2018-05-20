@@ -1,0 +1,1 @@
+cat access.log | awk '{printf"The size of requested data is %d bytes.\n",$10}'
