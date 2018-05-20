@@ -1,0 +1,1 @@
+ awk 'BEGIN{i=0}{i++;} END{print i}' access.log

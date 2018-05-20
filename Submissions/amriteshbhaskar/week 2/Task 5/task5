@@ -1,0 +1,2 @@
+sed -n -e '/404/p' access.log |awk 'BEGIN{i=0}{i++;}{printf"%d, %s, %s %s, %s, ", i,$1,$4,$5,$7}{for (j=12; j<24; j++) printf $j " ";}{printf"\n"}' > output.csv && sed  's/"Mozilla\/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/63.0.3239.132 Safari\/537.36"/"Googlebot\/2.1 (+http:\/\/www.google.com\/bot.html)"/' output.csv > output2.csv
+

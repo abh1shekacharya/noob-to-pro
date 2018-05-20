@@ -1,0 +1,1 @@
+sed -n '/Chrome/p' access.log | awk '{for (j=12; j<26; j++) printf $j " ";}{printf"\n"}' && awk '!/Chrome/' access.log
