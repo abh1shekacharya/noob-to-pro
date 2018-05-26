@@ -1,0 +1,4 @@
+#!/bin/bash
+#counting no. of lines
+filename=$1
+awk 'END {print "NUM OF LINES : " NR}' "$filename"

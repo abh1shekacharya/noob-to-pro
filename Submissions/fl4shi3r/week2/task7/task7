@@ -1,0 +1,1 @@
+awk 'BEGIN{count=0} {count++} END{print count}' access.log

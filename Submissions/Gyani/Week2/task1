@@ -1,0 +1,1 @@
+cat access.log | awk 'BEGIN{FS="\"-\""; flag=1;printf"\n"} !/Chrome/{print $0;flag=0} (flag==1){printf"Ueragent String =" $2"\n" }{flag=1}'

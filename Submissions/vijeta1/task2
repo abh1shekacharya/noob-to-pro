@@ -1,0 +1,2 @@
+scp -i /root/.vagrant/machines/default/virtualbox/private_key -P 2200 folderName vagrant@127.0.0.1:~/week-1
+

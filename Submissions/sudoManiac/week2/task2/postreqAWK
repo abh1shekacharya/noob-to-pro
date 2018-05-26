@@ -1,0 +1,4 @@
+#!/bin/bash
+# print all POST request
+
+awk '/POST/' "$1" 
