@@ -14,4 +14,9 @@ passwd.send_keys(password)
 
 submit = chrome.find_element_by_xpath("//button[@class='btn btn-primary btn-block']")
 submit.click()
-
+for i in range(20):
+	c_id = random.randrange(42000000,80000000)
+	comment = chrome.find_element_by_id(c_id+'_textarea')
+	comment.send_keys("Python is great , 'noob-to-pro'") 
+	comment_submit = chrome.find_element_by_xpath("//a[@class='btn btn-danger btn-sm add-comment-button']")
+	comment_submit.click()

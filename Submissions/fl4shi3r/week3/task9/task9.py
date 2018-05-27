@@ -14,4 +14,7 @@ passwd.send_keys(password)
 
 submit = chrome.find_element_by_xpath("//button[@class='btn btn-primary btn-block']")
 submit.click()
-
+for i in range(20):
+	c_id = random.randrange(42000000,80000000)
+	vote_click = chrome.find_element_by_xpath("//span[@onmousedown='upvote(c_id,this)'][@class data-toggle='tooltip']")
+	vote_click.click()
