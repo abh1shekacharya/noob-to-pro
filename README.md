@@ -11,10 +11,15 @@
 ### Week1:
 This week will cover the basics related to setting up the enviroment and install all the necessary softwares and adjust VMs according to our need.
 
-
 ### Week2
+This week will cover topics related to shell scripting, Usage of Sed and Awk. The tasks are to be performed on the given access.log file.
+
 ### Week3
+This week will cover Python scipting, automating of some tasks. And also Learn about different libraries of python like *Requests,  Beautifulsoup, etc .*
+
 ### Week4
+This week involves Foot-Printing and a bit of development where you will be asked to develop some websites having vulnerabilities and exploit them, also learn about different foot-printing methodologies (Shodan, Google dorks ..)
+
 ### Week5
 ### Week6
 ### Week7
