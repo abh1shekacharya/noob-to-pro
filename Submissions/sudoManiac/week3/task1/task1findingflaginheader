@@ -1,7 +1,0 @@
-#!/usr/bin/python2.7
-import bs4,requests
-flag=requests.get('http://www.mocky.io/v2/5b026eb43000007a00cee110')
-print("The Flag :"+flag.headers['Flag'])
-head=flag.headers
-for i in head:
-	print('\n'+i+'-:'+head[i])
