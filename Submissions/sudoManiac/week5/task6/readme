@@ -1,0 +1,40 @@
+COMMANDS  USED
+1. exiftool hideandseek.jpg
+
+OUTPUT
+
+ExifTool Version Number         : 10.86
+File Name                       : hideandseek.jpg
+Directory                       : .
+File Size                       : 54 kB
+File Modification Date/Time     : 2018:06:09 18:11:29+05:30
+File Access Date/Time           : 2018:06:09 18:11:29+05:30
+File Inode Change Date/Time     : 2018:06:09 18:11:43+05:30
+File Permissions                : rw-r--r--
+File Type                       : JPEG
+File Type Extension             : jpg
+MIME Type                       : image/jpeg
+JFIF Version                    : 1.01
+Exif Byte Order                 : Big-endian (Motorola, MM)
+X Resolution                    : 1
+Y Resolution                    : 1
+Resolution Unit                 : None
+Y Cb Cr Positioning             : Centered
+Exif Version                    : 0231
+Components Configuration        : Y, Cb, Cr, -
+Image History                   : PassPhrase:y0uc4nts33m3
+Flashpix Version                : 0100
+Color Space                     : Uncalibrated
+Image Width                     : 625
+Image Height                    : 625
+Encoding Process                : Baseline DCT, Huffman coding
+Bits Per Sample                 : 8
+Color Components                : 3
+Y Cb Cr Sub Sampling            : YCbCr4:2:0 (2 2)
+Image Size                      : 625x625
+Megapixels                      : 0.391
+
+IT CONTAINS THE PASSPHRASE FOR DECODING USING STEGHIDE
+
+2. steghide --extract -sf hideandseek.jpg 
+                THIS CREATES A FILE FLAG.TXT WITH THE OUTPUT.
