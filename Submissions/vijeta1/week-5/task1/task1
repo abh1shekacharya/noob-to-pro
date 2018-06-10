@@ -1,0 +1,2 @@
+$ unshadow /etc/passwd /etc/shadow > /root/file_to_crack
+$john --wordlist=/usr/share/john/password.lst /root/file_to_crack

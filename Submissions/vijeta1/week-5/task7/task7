@@ -1,0 +1,5 @@
+$ strings hideandseek.jpg
+
+$steghide extract -sf hideandseek.jpg
+
+$cat flag.txt
