@@ -8,9 +8,9 @@
 
 |#| Task		| Points	|	Format To Submit	|
 |--| ------------- 	| -------------	|	-------------------		|
-|1| Finding out the First key.|100 |	K	|
-|2| Finding out the Second key.| 300  |	K	|
-|3| Finding out the Third key. | 600  |	K |
+|1| Finding out the First key.|100 |	W	|
+|2| Finding out the Second key.| 300  |	W	|
+|3| Finding out the Third key. | 600  |	W |
 |4|Screen Recording of the way you find keys. |200| V |
 || **TOTAL** 	| **1200**	|
 
@@ -23,6 +23,7 @@ Please do mention all the ways you have tried even they are unsuccesful.
 Index	|	|
 --------|-------|
 C	| Code	|
+W | Writeup |
 V | Video | 
 L |links|
 S	| Screenshot	|
