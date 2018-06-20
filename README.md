@@ -21,8 +21,14 @@ This week will cover Python scipting, automating of some tasks. And also Learn a
 This week involves Foot-Printing and a bit of development where you will be asked to develop some websites having vulnerabilities and exploit them, also learn about different foot-printing methodologies (Shodan, Google dorks ..)
 
 ### Week5
+This week inolves forensics part of the subject, i.e finding hidden messages in different forms of data.
+
 ### Week6
+This week no tasks (**Break**).
+
 ### Week7
+This week learning of pentesting starts, need to find 3 keys from given VM.
+
 ### Week8
 ### Week9
 ### Week10
