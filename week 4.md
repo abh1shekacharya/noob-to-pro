@@ -15,7 +15,7 @@
 |7| Given search query 'Apache' find top-3 countries and top-3 organisations that have most apache servers. |100| C |
 |8| Write a single line bash script to find the IP address of different subomains of [Cisco](https://www.cisco.com/). | 150  |	C	|
 |9| Learn about Domain Information Groper (dig a linux command) try different options it provide an any website you like. | 50  |		S	|
-|| **TOTAL** 	| **750**	|
+|| **TOTAL** 	| **700**	|
 
 
 

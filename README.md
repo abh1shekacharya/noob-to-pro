@@ -30,6 +30,7 @@ This week no tasks (**Break**).
 This week learning of pentesting starts, need to find 3 keys from given VM.
 
 ### Week8
+This week we will try to get our basics clear for pwn and rev.
 ### Week9
 ### Week10
 ### Week11

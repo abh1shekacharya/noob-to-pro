@@ -17,7 +17,7 @@
 |9| Upvote any random 20 post  | 100  |		C	|
 |10| On the feed page of babblenow, comment on a particular user's posts, ( comment anything )  | 150  |		C	|
 |11| On the feed page of babblenow, upvote a particular user's posts | 150  |		C	|
-|| **TOTAL** 	| **1050**	|
+|| **TOTAL** 	| **1150**	|
 
 
 1: 
