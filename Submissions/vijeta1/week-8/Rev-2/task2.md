@@ -19,5 +19,5 @@ Now after analysis of code line by line i found cmp instruction with a constant 
 I think may be the password for this challenge is `0x149a`.
 So, i tried it after converting it in to decimal form(`5274`).
 
-![Solved](Images/3,png)
+![Solved](Images/3.png)
 
