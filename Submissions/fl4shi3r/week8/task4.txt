@@ -1,0 +1,29 @@
+this question is similar to previous one:
+   0x080484df <+71>:	mov    DWORD PTR [ebp-0x8],0x5a
+   0x080484e6 <+78>:	mov    DWORD PTR [ebp-0xc],0x1ec
+   0x080484ed <+85>:	mov    edx,DWORD PTR [ebp-0xc]
+   0x080484f0 <+88>:	lea    eax,[ebp-0x8]
+   0x080484f3 <+91>:	add    DWORD PTR [eax],edx
+   0x080484f5 <+93>:	mov    eax,DWORD PTR [ebp-0x8]
+   0x080484f8 <+96>:	imul   eax,DWORD PTR [ebp-0x8]
+   0x080484fc <+100>:	mov    DWORD PTR [ebp-0xc],eax
+   0x080484ff <+103>:	mov    eax,DWORD PTR [ebp-0xc]
+   0x08048502 <+106>:	mov    DWORD PTR [esp+0x4],eax
+   0x08048506 <+110>:	mov    eax,DWORD PTR [ebp-0x4]
+   0x08048509 <+113>:	mov    DWORD PTR [esp],eax
+till this it did the same work as in  previous question.
+
+By using the "info registers" command in gdb we can see different values stored in registers at different point of time..
+
+
+when <main+100> is executed 338724 is stored at ebp-0xc i.e.= 4294955016 - 12
+when test fucntion is called values at :
+4294954976 = your entered password
+
+before comparision 
+value in ebp = 4294954968
+value at address ebp+0x8 = your entered password
+value at address ebp+0xc = 4294954968 +12 = 338724
+
+That iscomparision is between your password and 338724
+thus the password is 338724
