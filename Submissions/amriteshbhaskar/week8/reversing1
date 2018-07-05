@@ -1,0 +1,9 @@
+As it's Name hints string compare
+after typing this command
+
+amritesh@MyUbuntu:~/week8/week-8$ strings rev1-strcmp | grep flag
+Usage: %s '<flag>'
+flag{sup3r_34sy_str1ng_ch3cks}
+
+and we get our flag:  flag{sup3r_34sy_str1ng_ch3cks}
+
