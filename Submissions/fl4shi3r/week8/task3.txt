@@ -1,0 +1,31 @@
+In this question also it ask for the password and then it compares it and tell whether it is correct or not.
+
+after analyzing (the assembly code using gdb) following code 
+
+1 :  0x0804842b <+71>:	mov    DWORD PTR [ebp-0x8],0x5a
+2 :  0x08048432 <+78>:	mov    DWORD PTR [ebp-0xc],0x1ec
+3 :  0x08048439 <+85>:	mov    edx,DWORD PTR [ebp-0xc]
+4 :  0x0804843c <+88>:	lea    eax,[ebp-0x8]
+5 :  0x0804843f <+91>:	add    DWORD PTR [eax],edx
+6 :  0x08048441 <+93>:	mov    eax,DWORD PTR [ebp-0x8]
+7 :  0x08048444 <+96>:	imul   eax,DWORD PTR [ebp-0x8]
+8 :  0x08048448 <+100>:	mov    DWORD PTR [ebp-0xc],eax
+9 :  0x0804844b <+103>:	mov    eax,DWORD PTR [ebp-0x4]
+10:  0x0804844e <+106>:	cmp    eax,DWORD PTR [ebp-0xc]
+11:  0x08048451 <+109>:	jne    0x8048461 <main+125>
+
+
+1 :  moves the value 90 to address: ebp-0x8.
+2 :  moves 492 to address : ebp-0xc
+3 :  moves the value stored at ebp-0xc to edx ie 492
+4 :  moves the address of ebp-0x8 to eax
+5 :  this changes the value stored at address in eax to 90+492 = 582 
+6 :  moves the value stored at address ebp-0x8 i.e. 582 to eax
+7 :  multiplies two numbers stores in eax and at address ebp-0x8 ie 582*582=338724 and stored in eax register
+8 :  now eax valute is moved or copied at momery address ebp-0xc
+
+finally it is campared with our input password.
+
+So password is 338724
+
+

@@ -1,0 +1,12 @@
+First we run the given file and we see that it is asking to enter a password.
+After entering password it check that password and tell us whether it is right or wrong.
+That means there must be comparision in the assembly code.
+using gdb we found that there is a line:
+
+0x0804842b <+71>:	cmp    DWORD PTR [ebp-0x4],0x149a
+0x08048432 <+78>:	je     0x8048442 <main+94>
+
+first line compare the entered password with 5274 and second line , if password matches with 5274 it jumpes to address: 0x8048442
+ which print password is correct.
+
+So 5274 is the correct password.
