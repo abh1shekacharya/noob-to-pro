@@ -32,7 +32,6 @@ This week learning of pentesting starts, need to find 3 keys from given VM.
 ### Week8
 This week we will try to get our basics clear for pwn and rev.
 ### Week9
+This week we will try to get our basics clear for Web Exploitations.
 ### Week10
-### Week11
-### Week12
-### Week13
+FInal week.
